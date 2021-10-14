@@ -6,8 +6,8 @@ resource "aws_security_group" "sg"{
     name            ="FirstServerSG"
 
     ingress{
-        from_port   =8080
-        to_port     =8080
+        from_port   =var.server_port
+        to_port     =var.server_port
         protocol    ="tcp"
         #CIDR block specifies IP ranges, 0.0.0.0/0 covers all IP addresses
         cidr_blocks =["0.0.0.0/0"]
@@ -23,7 +23,7 @@ resource "aws_instance" "FirstServer"{
     user_data               = <<-EOF
                             #!/bin/bash
                             echo "Hello there!" > index.html
-                            nohup busybox httpd -f -p 8080 &
+                            nohup busybox httpd -f -p ${var.server_port} &
                             EOF
 
     tags                    ={
