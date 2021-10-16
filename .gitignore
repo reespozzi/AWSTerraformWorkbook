@@ -2,3 +2,4 @@
 *.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
+launcher

@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Beginning creation...";
+export AWS_ACCESS_KEY_ID=insert_here;
+export AWS_SECRET_ACCESS_KEY=insert_here;
+
+echo "Ready to go!"
